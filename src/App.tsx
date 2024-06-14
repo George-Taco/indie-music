@@ -15,9 +15,9 @@ function App() {
         <Route index element={<Home/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/songexplorer" element={<SongExplorer/>}/>
-        <Route path="/SongLeaderboard" element={<SongLeaderboard/>}/>
-        <Route path="/ListenerLeaderboard" element={<ListenerLeaderboard/>}/>
-        <Route path="/Profile" element={<Profile/>}/>
+        <Route path="/songleaderboard" element={<SongLeaderboard/>}/>
+        <Route path="/listenerleaderboard" element={<ListenerLeaderboard/>}/>
+        <Route path="/profile" element={<Profile/>}/>
       </Routes>
     </Router>
   )

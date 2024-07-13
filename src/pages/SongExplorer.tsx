@@ -17,7 +17,7 @@ function SongExplorer() {
     const db = getFirestore();
 
     const readDoc = async () => {
-        const docRef = doc(db, "songPreviews", "GCwzcxLSZnnYuE0XBuLx");
+        const docRef = doc(db, "songPreviews", "Gmj0eDqUPQ9BN0L3LpMV");
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
@@ -85,7 +85,7 @@ function SongExplorer() {
             <div>
                 {storedValues.map( (item, index) => (
                     <div key={index}>
-                        <p>{item.field1}: {item.field2}</p>
+                        <p>{item.field1}: {item.field2}: {item.field3}: {item.field4}</p>
                     </div>
                 )
                 )}

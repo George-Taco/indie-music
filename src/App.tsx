@@ -9,6 +9,10 @@ import Login from './pages/Login';
 import Profile from './pages/Profile';
 import SongExplorer from './pages/SongExplorer';
 import SongLeaderboard from './pages/SongLeaderboard';
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from './firebaseConfig';
+
+initializeApp(firebaseConfig);
 
 function App() {
 

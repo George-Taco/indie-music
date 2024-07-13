@@ -11,6 +11,7 @@ import SongExplorer from './pages/SongExplorer';
 import SongLeaderboard from './pages/SongLeaderboard';
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from './firebaseConfig';
+import AuthRoute from './components/AuthRoute';
 
 initializeApp(firebaseConfig);
 
@@ -20,7 +21,14 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route index element={<Home/>}/>
+        <Route
+          path="/"
+          element={
+            <AuthRoute>
+              <Home/>
+            </AuthRoute>
+          }
+        />
         <Route path="/login" element={<Login/>}/>
         <Route path="/songexplorer" element={<SongExplorer/>}/>
         <Route path="/songleaderboard" element={<SongLeaderboard/>}/>

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import '../firebase/firebaseConfig';
 import { getFirestore, addDoc, collection, getDocs, query, DocumentData, doc, getDoc } from "firebase/firestore";
+import SongEmbed from '../components/SongEmbed'
 
 
 
-function SongExplorer() {
+function SongSubmission() {
 
     const temporaryArr: DocumentData[] = [];
 
@@ -13,7 +14,15 @@ function SongExplorer() {
     const [inputValue3, setInputValue3] = useState('');
     const [inputValue4, setInputValue4] = useState('');
     let [storedValues, setStoredValues] = useState(temporaryArr);
+
+    const songIDs = [
+        { id: '2kzGJLQ9e2lS2NqIajgbG9', likes: 10},
+        { id: '0QwKxajohg1rAMMmv1AWe1', likes: 27},
+        { id: '7DF8lvLdV3htIbuTWpc7lR', likes: 203}
+    ];
+    
   
+    
     const db = getFirestore();
 
     const readDoc = async () => {
@@ -52,8 +61,8 @@ function SongExplorer() {
     }
 
     return (
-        <div className="SongExplorer">
-            <h1>Song Explorer</h1>
+        <div className="SongSubmission">
+            <h1>Song Submission</h1>
             <input
                 type='text'
                 value={inputValue1}
@@ -78,8 +87,6 @@ function SongExplorer() {
 
             <button onClick={fetchDataFromFireStore}>Fetch from Firestore</button>
 
-            <iframe src="https://open.spotify.com/embed/track/0nsCBf5okWMVoaiDU9xiK7" width="250" height="450"></iframe>
-
             <button onClick={readDoc}>Read doc from Firestore</button>
 
             <div>
@@ -91,10 +98,11 @@ function SongExplorer() {
                 )}
             </div>
 
+            { songIDs.map((id) => <SongEmbed trackId={id.id} numLikes={id.likes}/>) }
         </div>
 
 
     );
 }
 
-export default SongExplorer;
+export default SongSubmission;

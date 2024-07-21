@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../firebase/firebaseConfig';
 import { getFirestore, addDoc, collection, getDocs, query, DocumentData, doc, getDoc } from "firebase/firestore";
 import SongEmbed from '../components/SongEmbed'
+import fetchData from '../firebase/firebaseFunctions';
 
 
 
@@ -15,13 +16,12 @@ function SongSubmission() {
     const [inputValue4, setInputValue4] = useState('');
     let [storedValues, setStoredValues] = useState(temporaryArr);
 
+    
     const songIDs = [
         { id: '2kzGJLQ9e2lS2NqIajgbG9', likes: 10},
         { id: '0QwKxajohg1rAMMmv1AWe1', likes: 27},
         { id: '7DF8lvLdV3htIbuTWpc7lR', likes: 203}
     ];
-    
-  
     
     const db = getFirestore();
 
@@ -87,7 +87,7 @@ function SongSubmission() {
 
             <button onClick={fetchDataFromFireStore}>Fetch from Firestore</button>
 
-            <button onClick={readDoc}>Read doc from Firestore</button>
+            <button onClick={fetchData}>Log fetch</button>
 
             <div>
                 {storedValues.map( (item, index) => (

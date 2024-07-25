@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import './firebaseConfig';
+import { getFirestore, addDoc, collection } from "firebase/firestore";
 import Home from './pages/Home';
 import Submission from './pages/Submission';
 import SongExplorer from './pages/SongExplorer';
@@ -11,6 +13,8 @@ import search from './icons/search.png';
 import submit from './icons/submit.png';
 
 function App() {
+
+
   return (
     <Router>
       <div id="side-panel">

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../firebase/firebaseConfig';
-import { getFirestore, addDoc, collection, getDocs, query, DocumentData, doc, getDoc } from "firebase/firestore";
+import { getFirestore, DocumentData } from "firebase/firestore";
 import SongEmbed from '../components/SongEmbed'
 import { saveDataToFireStore, fetchDataFromFireStore } from '../firebase/firebaseFunctions';
 

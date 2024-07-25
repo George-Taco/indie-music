@@ -17,17 +17,6 @@ function SongSubmission() {
     const [inputId, setInputId] = useState('');
     const [storedValues, setStoredValues] = useState(temporaryArr);
 
-    /*
-    const fetchDataFromFireStore = async () => {
-        const querySnapshot = await getDocs(collection(db, "songPreviews"));
-        const temporaryArr: DocumentData[] = [];
-        querySnapshot.forEach((doc) => {
-            temporaryArr.push(doc.data());
-        });
-        setStoredValues(temporaryArr);
-        console.log("loaded!!!!")
-    }
-    */
 
     useEffect(() => {
         

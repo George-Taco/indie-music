@@ -1,8 +1,6 @@
-import React, { useState } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './firebaseConfig';
-import { getFirestore, addDoc, collection } from "firebase/firestore";
+import './firebase/firebaseConfig';
 import Home from './pages/Home';
 import Submission from './pages/Submission';
 import SongExplorer from './pages/SongExplorer';
@@ -11,6 +9,13 @@ import logo from './icons/logo.png';
 import leaderboard from './icons/leaderboard.png';
 import search from './icons/search.png';
 import submit from './icons/submit.png';
+import SongLeaderboard from './pages/SongLeaderboard';
+import SongSubmission from './pages/SongSubmission';
+import { initializeApp } from 'firebase/app';
+import { firebaseConfig } from './firebase/firebaseConfig';
+import AuthRoute from './components/AuthRoute';
+
+initializeApp(firebaseConfig);
 
 function App() {
 
@@ -41,6 +46,20 @@ function App() {
         <Route path="/submission" element={<Submission/>}/>
         <Route path="/songexplorer" element={<SongExplorer/>}/>
         <Route path="/leaderboard" element={<Leaderboard/>}/>
+        <Route
+          path="/"
+          element={
+            <AuthRoute>
+              <Home/>
+            </AuthRoute>
+          }
+        />
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/songexplorer" element={<SongExplorer/>}/>
+        <Route path="/songleaderboard" element={<SongLeaderboard/>}/>
+        <Route path="/listenerleaderboard" element={<ListenerLeaderboard/>}/>
+        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/songsubmission" element={<SongSubmission/>}/>
       </Routes>
     </Router>
   )

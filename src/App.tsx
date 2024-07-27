@@ -9,8 +9,9 @@ import logo from './icons/logo.png';
 import leaderboard from './icons/leaderboard.png';
 import search from './icons/search.png';
 import submit from './icons/submit.png';
-import SongLeaderboard from './pages/SongLeaderboard';
+import SongLeaderboard from './pages/Leaderboard';
 import SongSubmission from './pages/SongSubmission';
+import Login from './pages/Login';
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from './firebase/firebaseConfig';
 import AuthRoute from './components/AuthRoute';
@@ -57,8 +58,6 @@ function App() {
         <Route path="/login" element={<Login/>}/>
         <Route path="/songexplorer" element={<SongExplorer/>}/>
         <Route path="/songleaderboard" element={<SongLeaderboard/>}/>
-        <Route path="/listenerleaderboard" element={<ListenerLeaderboard/>}/>
-        <Route path="/profile" element={<Profile/>}/>
         <Route path="/songsubmission" element={<SongSubmission/>}/>
       </Routes>
     </Router>

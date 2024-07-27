@@ -1,6 +1,6 @@
 import heart from '../icons/Heart.png'
 import { useState } from 'react';
-import '../firebaseConfig';
+import '../firebase/firebaseConfig';
 
 
 function SongExplorer(){

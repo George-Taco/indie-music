@@ -1,15 +1,27 @@
-import heart from '../icons/Heart.png'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../firebase/firebaseConfig';
+import { DocumentData } from "firebase/firestore";
+import SongEmbed from '../components/SongEmbed';
+import { fetchDataFromFireStore } from '../firebase/firebaseFunctions';
 
 
 function SongExplorer(){
+
+    const temporaryArr: DocumentData[] = [];
+
+    const [storedValues, setStoredValues] = useState(temporaryArr);
+
+    useEffect(() => {
+        
+        fetchDataFromFireStore().then((data) => {
+            setStoredValues(data);
+        });
+        //console.log("loaded songs!")
+    }, []);
+
     return (
         <div>
-            <iframe className="leftSongs" src="https://open.spotify.com/embed/track/2BJSMvOGABRxokHKB0OI8i?utm_source=generator" width="300" height="400vh" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-            <button id="test">
-                <img src={heart}></img>
-            </button>
+            { storedValues.map((item) => <SongEmbed trackId={item.id} numLikes={1}/>) }
         </div>
      )   
 

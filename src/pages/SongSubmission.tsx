@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import  { useState } from 'react';
 import '../firebase/firebaseConfig';
-import { getFirestore, addDoc, collection, getDocs, query, DocumentData, doc, getDoc } from "firebase/firestore";
-import SongEmbed from '../components/SongEmbed'
+import { DocumentData } from "firebase/firestore";
 import { saveDataToFireStore, fetchDataFromFireStore } from '../firebase/firebaseFunctions';
 
 
@@ -9,7 +8,6 @@ import { saveDataToFireStore, fetchDataFromFireStore } from '../firebase/firebas
 function SongSubmission() {
 
     const temporaryArr: DocumentData[] = [];
-    const db = getFirestore();
 
     const [inputTitle, setInputTitle] = useState('');
     const [inputArtist, setInputArtist] = useState('');
@@ -17,25 +15,6 @@ function SongSubmission() {
     const [inputId, setInputId] = useState('');
     const [storedValues, setStoredValues] = useState(temporaryArr);
 
-    /*
-    const fetchDataFromFireStore = async () => {
-        const querySnapshot = await getDocs(collection(db, "songPreviews"));
-        const temporaryArr: DocumentData[] = [];
-        querySnapshot.forEach((doc) => {
-            temporaryArr.push(doc.data());
-        });
-        setStoredValues(temporaryArr);
-        console.log("loaded!!!!")
-    }
-    */
-
-    useEffect(() => {
-        
-        fetchDataFromFireStore().then((data) => {
-            setStoredValues(data);
-        });
-        //console.log("loaded songs!")
-    }, []);
 
     return (
         <div className="SongSubmission">
@@ -64,8 +43,6 @@ function SongSubmission() {
 
             <button onClick={fetchDataFromFireStore}>Fetch from Firestore</button>
 
-            <button onClick={fetchDataFromFireStore}>Log fetch</button>
-
             <div>
                 {storedValues.map( (item, index) => (
                     <div key={index}>
@@ -74,7 +51,6 @@ function SongSubmission() {
                 )
                 )}
             </div>
-            { storedValues.map((item) => <SongEmbed trackId={item.id} numLikes={1}/>) }
         </div>
 
 

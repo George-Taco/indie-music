@@ -1,17 +1,19 @@
+
+
 #root{
     width: 100vw;
     height: 100vh;
     background-color: rgb(30, 30, 30);
 }
 
-#side-panel {
+#nav-panel {
     background-color: rgb(37, 37, 37);
     position: fixed;
     height: 100vh;
     width: 15vw;
 }
 
-#side-panel-logo-text {
+#nav-panel-logo-text {
     color: white;
     font-weight: normal;
     font-style: italic;
@@ -21,27 +23,59 @@
     font-size: 25px;
 }
 
-#test {
+#like {
     color:"white";
     position: absolute;
-    left: 18vw;
-    top: 8vh;
+    left: 22px;
+    top: 110px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#like img {
+    display: block;
+    width: 25px; /* Adjust size as needed */
+    height: auto;
+  }
+
+#like2 {
+    color:"white";
+    position: absolute;
+    left: 250px;
+    top: 8px;
     background: none;
     border: none;
     padding: 0;
     cursor: pointer;
 }
 
-#test img {
+#like2 img {
     display: block;
-    width: 25px; /* Adjust size as needed */
+    width: 17px; /* Adjust size as needed */
     height: auto;
-  }
+}
 
 .leftSongs {
     position: absolute;
     left: 17vw;
     top: 50px
+}
+
+.spotifyEmbed {
+    position: absolute;
+    display: inline-block;
+    margin-top: 10vh;
+    zoom: 100%;
+}
+
+.spotifyEmbedContainer {
+    position: relative;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    display: inline-block;
 }
 
 #sampleSongID {
@@ -52,7 +86,7 @@
     background-color: rgb(192, 192, 192);
 }
 
-.side-panel-button {
+.nav-panel-button {
     display: grid;
     grid-template-rows: min-content;
     position: relative;
@@ -66,11 +100,11 @@
     transition: color 0.3s;
 }
 
-.side-button-links {
+.nav-button-links {
     text-decoration: none;
 }
 
-.side-panel-button:hover{
+.nav-panel-button:hover{
     color: rgb(139, 52, 208);
     
 }

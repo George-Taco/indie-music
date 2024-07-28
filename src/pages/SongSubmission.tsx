@@ -18,25 +18,29 @@ function SongSubmission() {
 
     return (
         <div className="SongSubmission">
-            <h1>Song Submission</h1>
+            <h1 className='submission-header'>Song Submission</h1>
             <input
                 type='text'
                 value={inputTitle}
+                placeholder='title'
                 onChange={(e) => setInputTitle(e.target.value)}
             />
             <input
                 type='text'
                 value={inputArtist}
+                placeholder='artist'
                 onChange={(e) => setInputArtist(e.target.value)}
             />
             <input
-                type='string'
+                type='text'
                 value={inputLikes}
+                placeholder='number of likes'
                 onChange={(e) => setInputLikes(e.target.value)}
             />
             <input
                 type='text'
                 value={inputId}
+                placeholder='spotify ID'
                 onChange={(e) => setInputId(e.target.value)}
             />
             <button onClick={() => saveDataToFireStore(inputTitle, inputArtist, inputLikes, inputId)}>Save to Firestore</button> <br></br>

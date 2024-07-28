@@ -20,7 +20,7 @@ function SongExplorer(){
     }, []);
 
     return (
-        <div>
+        <div className='grid-container'>
             { storedValues.map((item) => <SongEmbed trackId={item.id} numLikes={1}/>) }
         </div>
      )   

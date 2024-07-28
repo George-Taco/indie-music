@@ -20,7 +20,7 @@ function App() {
 
   return (
     <Router>
-      <NavPanel></NavPanel>
+      <NavPanel />
       <Routes>
         <Route index element={<Home/>}/>
         <Route path="/submission" element={<Submission/>}/>

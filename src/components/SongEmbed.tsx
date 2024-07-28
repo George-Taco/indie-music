@@ -12,7 +12,7 @@ function SongEmbed({ trackId, numLikes }: Props) {
 
     return (
         <div className='spotifyEmbedContainer'>
-            <iframe className = "spotifyEmbed" src={embedUrl} width="300" height="400" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe className = "spotifyEmbed" src={embedUrl} width="290" height="360" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
             <button id="like">
                 <img src={heart}></img>
             </button>

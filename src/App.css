@@ -3,7 +3,13 @@ body{
     background-color: rgb(30, 30, 30);
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
 
+html {
+    scroll-behavior: smooth;
+}
 
 #nav-panel {
     background-color: rgb(37, 37, 37);
@@ -18,7 +24,7 @@ body{
     font-weight: normal;
     font-style: italic;
     position: absolute;
-    left: 3.2vw;
+    left: 4vw;
     top: 2vh;
     font-size: 25px;
 }
@@ -65,7 +71,6 @@ body{
 }
 
 .spotifyEmbed {
-    position: absolute;
     margin-top: 10vh;
     zoom: 100%;
     
@@ -118,7 +123,7 @@ body{
 
 #logo-icon {
     position: absolute;
-    left: 1.6vw;
+    left: 1.5vw;
     top: 2.3vh;
     width: 30px;
     height: 30px;

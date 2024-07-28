@@ -2,11 +2,10 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './firebase/firebaseConfig';
 import Home from './pages/Home';
-import Submission from './pages/Submission';
+import Submission from './pages/SongSubmission';
 import SongExplorer from './pages/SongExplorer';
 import Leaderboard from './pages/Leaderboard';
 import SongLeaderboard from './pages/Leaderboard';
-import SongSubmission from './pages/SongSubmission';
 import Login from './pages/Login';
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from './firebase/firebaseConfig';
@@ -21,24 +20,17 @@ function App() {
   return (
     <Router>
       <NavPanel />
+      <AuthRoute>
       <Routes>
-        <Route index element={<Home/>}/>
-        <Route path="/submission" element={<Submission/>}/>
+        <Route path="/" element={<Home/>}/>
         <Route path="/songexplorer" element={<SongExplorer/>}/>
         <Route path="/leaderboard" element={<Leaderboard/>}/>
-        <Route
-          path="/"
-          element={
-            <AuthRoute>
-              <Home/>
-            </AuthRoute>
-          }
-        />
         <Route path="/login" element={<Login/>}/>
         <Route path="/songexplorer" element={<SongExplorer/>}/>
         <Route path="/songleaderboard" element={<SongLeaderboard/>}/>
-        <Route path="/songsubmission" element={<SongSubmission/>}/>
+        <Route path="/submission" element={<Submission/>}/>
       </Routes>
+      </AuthRoute>
     </Router>
   )
 }

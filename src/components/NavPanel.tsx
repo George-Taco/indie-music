@@ -2,6 +2,7 @@ import logo from '../icons/logo.png';
 import leaderboard from '../icons/leaderboard.png';
 import search from '../icons/search.png';
 import submit from '../icons/submit.png';
+import heart from '../icons/Heart-Pg.png';
 
 function NavPanel() {
     return(
@@ -20,6 +21,11 @@ function NavPanel() {
         <a href='/submission' className="nav-button-links">
             <button className='nav-panel-button' id="submission-button">&nbsp;&nbsp;Submission
                 <img src={submit} alt="Submit Icon" id="submit-icon"></img>
+            </button>
+        </a>
+        <a href="/likes" className="nav-button-links">
+            <button className='nav-panel-button' id="likes-button">&nbsp;&nbsp;Likes
+                <img src={heart} alt="Heart Icon" id="heart-pg-icon"></img>
             </button>
         </a>
         <img src={logo} alt="Rhyhtmic Logo" id="logo-icon"></img>

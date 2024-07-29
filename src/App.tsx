@@ -7,6 +7,7 @@ import SongExplorer from './pages/SongExplorer';
 import Leaderboard from './pages/Leaderboard';
 import SongLeaderboard from './pages/Leaderboard';
 import Login from './pages/Login';
+import Likes from './pages/Likes';
 import { initializeApp } from 'firebase/app';
 import { firebaseConfig } from './firebase/firebaseConfig';
 import AuthRoute from './components/AuthRoute';
@@ -29,6 +30,7 @@ function App() {
         <Route path="/songexplorer" element={<SongExplorer/>}/>
         <Route path="/songleaderboard" element={<SongLeaderboard/>}/>
         <Route path="/submission" element={<Submission/>}/>
+        <Route path="/likes" element={<Likes/>}/>
       </Routes>
       </AuthRoute>
     </Router>

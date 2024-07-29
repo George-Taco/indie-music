@@ -18,42 +18,51 @@ function SongSubmission() {
 
     return (
         <div className="SongSubmission">
-            <h1 className='submission-header'>Song Submission</h1>
-            <input
-                type='text'
-                value={inputTitle}
-                placeholder='title'
-                onChange={(e) => setInputTitle(e.target.value)}
-            />
-            <input
-                type='text'
-                value={inputArtist}
-                placeholder='artist'
-                onChange={(e) => setInputArtist(e.target.value)}
-            />
-            <input
-                type='text'
-                value={inputLikes}
-                placeholder='number of likes'
-                onChange={(e) => setInputLikes(e.target.value)}
-            />
-            <input
-                type='text'
-                value={inputId}
-                placeholder='spotify ID'
-                onChange={(e) => setInputId(e.target.value)}
-            />
-            <button onClick={() => saveDataToFireStore(inputTitle, inputArtist, inputLikes, inputId)}>Save to Firestore</button> <br></br>
+            <div className="submission-form-background">
+                <h1 className='submission-header'>Submit A Song</h1>
+                <p className='submission-subheader'>Submit your own song right here! Note that songs are all reviewed first and not all songs are accepted.</p>
 
-            <button onClick={fetchDataFromFireStore}>Fetch from Firestore</button>
+                <p className='submission-input-header'>Title</p>
+                <input
+                    type='text'
+                    value={inputTitle}
+                    placeholder='my song'
+                    onChange={(e) => setInputTitle(e.target.value)}
+                />
 
-            <div>
-                {storedValues.map( (item, index) => (
-                    <div key={index}>
-                        <p>{item.id}: {item.field2}: {item.field3}: {item.field4}</p>
-                    </div>
-                )
-                )}
+                <p className='submission-input-header'>Artist</p>
+                <input
+                    type='text'
+                    value={inputArtist}
+                    placeholder='artist'
+                    onChange={(e) => setInputArtist(e.target.value)}
+                />
+
+                <p className='submission-input-header'>Number of Likes</p>
+                <input
+                    type='text'
+                    value={inputLikes}
+                    placeholder='0'
+                    onChange={(e) => setInputLikes(e.target.value)}
+                />
+
+                <p className='submission-input-header'>Spotify ID</p>
+                <input
+                    type='text'
+                    value={inputId}
+                    placeholder='spotify ID'
+                    onChange={(e) => setInputId(e.target.value)}
+                />
+                <button className="submit-song-button" onClick={() => saveDataToFireStore(inputTitle, inputArtist, inputLikes, inputId)}>Submit Song</button> <br></br>
+
+                <div>
+                    {storedValues.map( (item, index) => (
+                        <div key={index}>
+                            <p>{item.id}: {item.field2}: {item.field3}: {item.field4}</p>
+                        </div>
+                    )
+                    )}
+                </div>
             </div>
         </div>
 

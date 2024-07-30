@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { getAuth, GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 
 export interface ILoginPageProps {}
@@ -22,7 +22,6 @@ const Login: React.FunctionComponent<ILoginPageProps> = (props) => {
             setAuthing(false);
         });
     }
-
 
     return (
     <div>

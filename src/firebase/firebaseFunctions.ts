@@ -2,6 +2,7 @@ import './firebaseConfig';
 import { getFirestore, addDoc, collection, getDocs, DocumentData } from "firebase/firestore";
 import { firebaseConfig } from './firebaseConfig';
 import { initializeApp } from 'firebase/app';
+import { getAuth } from "firebase/auth";
 
 initializeApp(firebaseConfig)
 
@@ -11,7 +12,7 @@ const db = getFirestore();
 
     // save doc to songPreviews collection
     const saveDataToFireStore = async (inputTitle: string, inputArtist: string, inputLikes: string, inputId: string) => {
-      const docRef = await addDoc(collection(db, "songPreviews"), {
+      await addDoc(collection(db, "songPreviews"), {
         name: inputTitle,
         artist: inputArtist,
         likes: inputLikes,
@@ -35,5 +36,35 @@ const db = getFirestore();
     }
 
 
+    // get current users URL
+    const getUserId = () => {
+      const auth = getAuth();
+      const user = auth.currentUser;
+      if (user !== null) {
+        //const displayName = user.displayName;
+        //const email = user.email;
+        const uid = user.uid;
+        return uid;
+      }
+    }
 
-export { saveDataToFireStore, fetchDataFromFireStore };
+    const getDisplayName = () => {
+      const auth = getAuth();
+      const user = auth.currentUser;
+      if (user !== null) {
+        const displayName = user.displayName;
+        return displayName;
+      }
+    }
+
+    const getUserEmail = () => {
+      const auth = getAuth();
+      const user = auth.currentUser;
+      if (user !== null) {
+        const email = user.email;
+        return email;
+      }
+    }
+
+
+export { saveDataToFireStore, fetchDataFromFireStore, getUserId, getDisplayName, getUserEmail };
